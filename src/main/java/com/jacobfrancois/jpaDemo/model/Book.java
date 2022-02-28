@@ -1,4 +1,4 @@
-package model;
+package com.jacobfrancois.jpaDemo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,15 +14,30 @@ public class Book {
 
     String title;
     String isbn;
-    String author;
+    String publisher;
 
     public Book() {
     }
 
-    public Book(String title, String isbn, String author) {
+    public Book(String title, String isbn, String publisher) {
         this.title = title;
         this.isbn = isbn;
-        this.author = author;
+        this.publisher = publisher;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        return id == book.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 
     public int getId() {
@@ -49,11 +64,11 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 }

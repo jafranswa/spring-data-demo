@@ -21,10 +21,10 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         bookRepository.deleteAll();
 
-        Book book1 = new Book("hitchikers guide", "1234", "Megadodo Publications");
+        Book book1 = new Book("hitchikers guide", "1234", "Megadodo Publications", null);
         Book savedBook1 = bookRepository.save(book1);
 
-        Book book2 = new Book("SQL never again", "4321", "never never land publications");
+        Book book2 = new Book("SQL never again", "4321", "never never land publications", null);
         Book savedBook2 = bookRepository.save(book2);
 
         bookRepository.findAll().forEach(book -> {
